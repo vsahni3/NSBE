@@ -36,6 +36,7 @@ def analyze():
     transcript = request.get_json()['transcript']
     response = reply(transcript)
     class_response = classify(transcript)
+
     if EMAIL[0]:
         email = EMAIL[0]
         sql.insert_user(email[:email.index('@')], transcript, response, class_response)
@@ -96,10 +97,3 @@ def map():
 if __name__ == '__main__':
     # Threaded option to enable multiple instances for multiple user access support
     app.run(threaded=True, port=5000)
-
-
-
-
-
-
-

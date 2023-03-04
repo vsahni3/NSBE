@@ -27,6 +27,7 @@ def reply(prompt):
     prompt = f'''
     Analyze the following text for racism:
     {prompt}
+    Response:
     '''
     response = co.generate(
     model='command-xlarge-nightly',
