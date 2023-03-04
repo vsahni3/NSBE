@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify, session
 from flask_cors import CORS, cross_origin
 import sql
 from analysis import reply
+from classification import classify
 
 app = Flask(__name__)
 app.config["SESSION_PERMANENT"] = False
@@ -34,9 +35,10 @@ def login():
 def analyze():
     transcript = request.get_json()['transcript']
     response = reply(transcript)
+    class_response = classify(transcript)
     if EMAIL[0]:
         email = EMAIL[0]
-        sql.insert_user(email[:email.index('@')], transcript, response)
+        sql.insert_user(email[:email.index('@')], transcript, response, class_response)
         return jsonify({
         'response': 'Done'
         })

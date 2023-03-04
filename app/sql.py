@@ -30,7 +30,7 @@ def create_user_table(email):
     conn = sqlite3.connect("mydatabase.db")
     mycursor = conn.cursor()
 
-    command = f"CREATE TABLE IF NOT EXISTS {email}user (id INTEGER PRIMARY KEY AUTOINCREMENT, transcript LONGTEXT, analysis LONGTEXT, date nvarchar(100))"
+    command = f"CREATE TABLE IF NOT EXISTS {email}user (id INTEGER PRIMARY KEY AUTOINCREMENT, transcript LONGTEXT, analysis LONGTEXT, classification nvarchar(100), date nvarchar(100))"
     mycursor.execute(command)
     conn.commit()
 
@@ -45,12 +45,12 @@ def insert_map(description: str):
     conn.commit()
 
 
-def insert_user(email: str, transcript: str, analysis: str):
+def insert_user(email: str, transcript: str, analysis: str, classification: str):
     """Insert new message into messages"""
     date = give_date()
     conn = sqlite3.connect("mydatabase.db")
     mycursor = conn.cursor()
-    mycursor.execute(f"INSERT INTO {email}user (transcript, analysis, date) VALUES (?, ?, ?)", (transcript, analysis, date))
+    mycursor.execute(f"INSERT INTO {email}user (transcript, analysis, classification, date) VALUES (?, ?, ?, ?)", (transcript, analysis, classification, date))
     conn.commit()
 
 
@@ -77,7 +77,7 @@ def load_messages(email: str):
     conn = sqlite3.connect("mydatabase.db")
     mycursor = conn.cursor()
 
-    command = f"""SELECT transcript, analysis, date FROM {email}user"""
+    command = f"""SELECT transcript, analysis, classification, date FROM {email}user"""
     mycursor.execute(command)
 
     return mycursor.fetchall()
