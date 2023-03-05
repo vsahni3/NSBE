@@ -41,7 +41,7 @@ function Speech() {
                 console.log("HELP reported!!!")
             });
             // report the urgent case x
-            await fetch('http://127.0.0.1:5000/report/', {
+            await fetch('https://nsbe.herokuapp.com/report/', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
@@ -57,7 +57,7 @@ function Speech() {
     }
 
     const getMapInfo = async () => {
-        const response = await fetch('http://127.0.0.1:5000/map/')
+        const response = await fetch('https://nsbe.herokuapp.com/map/')
         const jsonMapData = await response.json();
         console.log(jsonMapData.response)
         setSampleResponse(jsonMapData);
@@ -92,7 +92,7 @@ function Speech() {
         try {
             const body = { "transcript": value }; // convert to JSON since body needs to be in JSON format
             // const responses = [];
-            const response = await fetch('http://127.0.0.1:5000/analyze/', {
+            const response = await fetch('https://nsbe.herokuapp.com/analyze/', {
                 method: "POST",
                 // mode: 'no-cors',
                 headers: {

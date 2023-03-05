@@ -13,7 +13,7 @@ const Modal = props => {
 
   const { reportPhrase, setReportPhrase, sampleResponse, setSampleResponse } = useContext(AppContext);
   const reportCrime = async () => {
-    await fetch('http://127.0.0.1:5000/report/', {
+    await fetch('https://nsbe.herokuapp.com/report/', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -25,7 +25,7 @@ const Modal = props => {
   }
 
   const getMapInfo = async () => {
-    const response = await fetch('http://127.0.0.1:5000/map/')
+    const response = await fetch('https://nsbe.herokuapp.com/map/')
     const jsonMapData = await response.json();
     console.log(jsonMapData.response)
     setSampleResponse(jsonMapData);

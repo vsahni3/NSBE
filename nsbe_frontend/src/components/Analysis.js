@@ -37,7 +37,7 @@ const Analysis = () => {
   const [conversations, setConversations] = useState([])
 
   useEffect(async () => {
-    const response = await fetch('http://127.0.0.1:5000/give_analysis/')
+    const response = await fetch('https://nsbe.herokuapp.com/give_analysis/')
         const jsonMapData = await response.json();
         console.log(jsonMapData.response)
         setConversations(jsonMapData.response);
