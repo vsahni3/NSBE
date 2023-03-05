@@ -1,5 +1,5 @@
 import cohere
-
+from classification import classify
 co = cohere.Client('ZG1hp4UsOagPS7V8vOiSxkGMljolDMPi96KAvboq')
 
 
@@ -26,6 +26,7 @@ Response: The comment shows a bias towards people from Nigeria. It
 def reply(prompt):
     prompt = f'''
     Analyze the following text for racism:
+    For context, a black male is talking with a police officer.
     {prompt}
     Response:
     '''
@@ -41,6 +42,9 @@ def reply(prompt):
 
 sample_prompt = '''
 Analyze the following input for racism:
-
+Have a safe trip.
 Response:
 '''
+print(reply(sample_prompt))
+print(classify(sample_prompt))
+

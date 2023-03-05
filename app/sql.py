@@ -58,7 +58,7 @@ def load_map():
     conn = sqlite3.connect("mydatabase.db")
     mycursor = conn.cursor()
 
-    command = f"""SELECT lat, long, description, date FROM map"""
+    command = f"""SELECT id, lat, long, description, date FROM map"""
     mycursor.execute(command)
 
     return mycursor.fetchall()
