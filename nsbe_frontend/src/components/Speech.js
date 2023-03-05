@@ -14,9 +14,24 @@ import Modal from './Modal';
 
 
 function Speech() {
+    function help(value) {
+        if ('help' in value.toLowerCase()) {
+            const res = fetch('http://127.0.0.1:5000/report/', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ "prompt": 'Urgent Request for Help' })})
+                .then(response => response.json())
+            return res
+        }
+
+    }
     const [value, setValue] = useState('');
     const { listen, listening, stop } = useSpeechRecognition({
         onResult: (result) => {
+            const res = help(result);
             setValue(result);
             //   console.log(result);
         },
