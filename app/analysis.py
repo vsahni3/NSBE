@@ -1,18 +1,18 @@
 import cohere
 from cohere.classify import Example
-
+from app.sql import *
 co = cohere.Client('ZG1hp4UsOagPS7V8vOiSxkGMljolDMPi96KAvboq')
 
 count = [0]
 training_prompt = '''
-For context, a black male is talking with a police officer.
+For context, a black person is talking with a police officer.
 Analyze the following input for racism:
 I am surprised you are speaking so articulately.
 
 Response: The language used in the text shows a subtle bias towards black people. 
 It implies they usually do not speak clearly.
 --
-For context, a black male is talking with a police officer.
+For context, a black person is talking with a police officer.
 Analyze the following input for racism:
 Wow, you speak surprisingly good english considering you are from Nigeria.
 
@@ -20,7 +20,7 @@ Response: The comment shows a bias towards people from Nigeria. It
  implies that people from Nigeria are not expected to speak good
  English.
 --
-For context, a black male is talking with a police officer.
+For context, a black person is talking with a police officer.
 Analyze the following input for racism:
 Have a safe trip.
 
@@ -48,13 +48,18 @@ def classify(prompt):
 
   return response.classifications[0].prediction
 
-def reply(prompt):
+def reply(prompt, email: str):
     prompt = f'''
     Analyze the following text for racism:
     For context, a black male is talking with a police officer.
     {prompt}
     Response:
     '''
+    past_info = load_messages(email)
+    past_prompt = ''
+    for data in past_info:
+        past_prompt += data[0] + '\n' + data[1] + '\n--'
+    training_prompt += '--' + past_prompt
     response = co.generate(
     model='command-xlarge-nightly',
     prompt=training_prompt + '--' + prompt,

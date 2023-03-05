@@ -101,20 +101,20 @@ def remove_all_map():
 # mycursor = conn.cursor()
 # description = 'I was shoved by a cop'
 # date = "04/03/2023 23:57"
-# lat = '43.5'
-# long = '-79.5'
+# lat = '43.9'
+# long = '-79.3'
 # mycursor.execute(f"INSERT INTO map (lat, long, description, date) VALUES (?, ?, ?, ?)", (lat, long, description, date))
 
 # description = 'An officer pushed me to the ground'
 # date = "04/02/2023 21:51"
-# lat = '43.4'
-# long = '-79.6'
+# lat = '43.8'
+# long = '-79.2'
 # mycursor.execute(f"INSERT INTO map (lat, long, description, date) VALUES (?, ?, ?, ?)", (lat, long, description, date))
 
 # description = 'I was called racial slurs'
 # date = "04/01/2023 13:27"
 # lat = '43.75'
-# long = '-79.3'
+# long = '-79.1'
 # mycursor.execute(f"INSERT INTO map (lat, long, description, date) VALUES (?, ?, ?, ?)", (lat, long, description, date))
 # conn.commit()
 
