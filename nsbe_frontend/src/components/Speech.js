@@ -48,19 +48,26 @@ function Speech() {
     const [sampleResponse, setSampleResponse] = useState({
         'response': [
             [
-                1,
-                "44.6629",
-                "-80.3987",
+                0,
+                "43",
+                "-78",
                 "I was shoved by a police officer",
                 "04/03/2023 16:35",
             ],
-            // [
-            //     2, 
-            //     "43.6629",
-            //     "-79.3987",
-            //     "I was physically assaulted by a police officer",
-            //     "04/020/2023 19:40",
-            // ]
+            [
+                1, 
+                "44",
+                "-79",
+                "I was physically assaulted by a police officer",
+                "04/020/2023 19:40",
+            ],
+            [
+                2, 
+                "45",
+                "-80",
+                "I was physically assaulted r",
+                "04/030/2023 19:50",
+            ]
         ]
     });
 
@@ -132,8 +139,6 @@ function Speech() {
             console.log(error);
         }
     }
-
-
 
     return (
         <>
