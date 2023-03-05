@@ -1,0 +1,31 @@
+.dashboard {
+    width: 150%;
+    margin-left: 1100px;
+    display: absolute;
+    align-items: center;
+    justify-content: right;
+    margin-top: 150px;
+    /* background-color: black; */
+  }
+  .dashboard__container {
+    display: absolute;
+    margin-left: 160px;
+    margin-bottom: 20px;
+    flex-direction: column;
+    text-align: center;
+    background-color: transparent;
+    padding: 10px;
+    /* margin-top: 0px; */
+  }
+  .dashboard__btn {
+    padding: 10px;
+    font-size: 18px;
+    margin-top: 10px;
+    border: none;
+    color: white;
+    background-color: black;
+  }
+  .dashboard div {
+    margin-top: 7px;
+  }
+

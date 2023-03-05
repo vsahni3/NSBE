@@ -1,0 +1,227 @@
+.login {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .login__container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: #dcdcdc;
+    padding: 30px;
+  }
+  .login__textBox {
+    padding: 10px;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  .login__btn {
+    padding: 10px;
+    font-size: 18px;
+    margin-bottom: 10px;
+    border: none;
+    color: white;
+    background-color: black;
+  }
+  .login__google {
+    background-color: #4285f4;
+  }
+  .login div {
+    margin-top: 7px;
+  }
+
+
+
+  @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@1,500&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&family=Rubik:ital,wght@1,500&display=swap');
+
+.test {
+  /* Do you want to join? */
+
+  position: absolute;
+  width: 594px;
+  height: 62px;
+  left: 567px;
+  top: 250px;
+
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 50px;
+  line-height: 59px;
+  text-align: center;
+  color: #000000;
+}
+
+.input1 {
+  /* Rectangle 13 */
+  position: absolute;
+  width: 404px;
+  height: 62.45px;
+  left: 662px;
+  top: 393px;
+
+  background: #ECECEC;
+  box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 31.224px;
+}
+
+.input2 {
+/* Rectangle 2 */
+
+position: absolute;
+width: 404px;
+height: 62.45px;
+left: 662px;
+top: 489.75px;
+
+background: #ECECEC;
+box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.25);
+border-radius: 31.224px;
+
+}
+
+.input3 {
+/* Rectangle 6 */
+
+position: absolute;
+width: 404px;
+height: 62.45px;
+left: 662px;
+top: 586.61px;
+
+background: #ECECEC;
+box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.25);
+border-radius: 31.224px;
+
+}
+
+.signup_btn {
+  /* Rectangle 12 */
+
+position: absolute;
+width: 404px;
+height: 62.45px;
+left: 662px;
+top: 682.19px;
+
+background: #233B5D;
+border-radius: 31.224px;
+
+}
+
+.register {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+}
+
+.title {
+  font-family: 'Rubik';
+  font-style: 'medium';
+  
+  /* height: 100px; */
+  margin-bottom: 20px;
+  /* width: 594px;
+  height: 62px; */
+  /* Do you want to join? */
+  color: #000000;
+  font-family: 'Rubik', sans-serif;
+font-weight: 500;
+font-size: 30px;
+line-height: 59px;
+text-align: center;
+}
+
+.title2 {
+  /* height: 100px; */
+  margin-bottom: 0px;
+  /* width: 594px;
+  height: 62px; */
+  /* Do you want to join? */
+  color: #000000;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
+font-size: 45px;
+line-height: 59px;
+text-align: center;
+}
+
+.title3 {
+  font-size: 60px;
+  margin-top: 0;
+  margin-bottom: 10px;
+  margin: auto;
+  color: #233B5D;
+
+  font-family: 'Russo One', sans-serif;
+}
+
+.Logo {
+  width: 50%;
+  height: 100%;
+  margin: 20px;
+  align-self: center;
+  
+}
+
+.register__container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-color: #dcdcdc;
+  width: 500px;
+  padding: 30px;
+  background-color: white;
+  margin-bottom: 100px;
+}
+
+.register__textBox {
+  padding: 10px;
+  font-size: 18px;
+  margin-bottom: 10px;
+  background: #ECECEC;
+  border: none;
+  box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 31.224px;
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-top: 10px;
+  height: 30px;
+}
+
+.register__btn {
+  margin-top: 10px;
+  margin-left: 100px;
+  margin-right: 100px;
+  padding: 10px;
+  font-size: 18px;
+  margin-bottom: 10px;
+  border: none;
+  color: black;
+  background: #233B5D;
+border-radius: 31.224px;
+  height: 50px;
+}
+
+.register div {
+  margin-top: 7px;
+}
+
+.login_font {
+  /* font-family: 'Roboto Slab', serif; */
+  font-family: 'Rubik', sans-serif;
+}
+
+a {
+  color: #233B5D;
+}
+
+a:hover {
+  color: #ececec;
+}

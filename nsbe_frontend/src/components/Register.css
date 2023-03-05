@@ -1,0 +1,141 @@
+  @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@1,500&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+
+
+  .top_logo {
+    position: absolute;
+    width: 12%;
+    height: 15%;
+    top: 0px;
+    left: 0px;
+  }
+
+  .top_title {
+    position: absolute;
+    top: 17px;
+    left: 120px;
+    font-size: 40px;
+    margin-top: 0;
+    margin-bottom: 10px;
+    margin: auto;
+    color: #233B5D;
+    font-family: 'Russo One', sans-serif;
+  }
+
+  
+  .signup_btn {
+    /* Rectangle 12 */
+
+    position: absolute;
+    width: 404px;
+    height: 62.45px;
+    left: 662px;
+    top: 682.19px;
+
+    background: #233B5D;
+    border-radius: 31.224px;
+
+  }
+
+  .register {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    margin-top: 30px;
+  }
+
+  .title {
+    /* height: 100px; */
+    margin-bottom: 20px;
+    /* width: 594px;
+  height: 62px; */
+    /* Do you want to join? */
+    color: #000000;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 500;
+    font-size: 50px;
+    line-height: 59px;
+    text-align: center;
+    margin-top: 0px;
+  }
+
+
+  /* .title2 {
+  font-size: 50px;
+
+  font-family: 'Russo One', sans-serif;
+} */
+
+
+  .register__container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: #dcdcdc;
+    width: 550px;
+    padding: 30px;
+    background-color: white;
+    margin-bottom: 100px;
+  }
+
+  .register__textBox {
+    padding: 10px;
+    font-size: 18px;
+    margin-bottom: 10px;
+    background: #ECECEC;
+    border: none;
+    box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 31.224px;
+    margin-left: 80px;
+    margin-right: 80px;
+    margin-top: 15px;
+    height: 50px;
+    padding-left: 25px;
+  }
+
+
+  input::placeholder {
+    font-weight: bold;
+    opacity: 0.5;
+  }
+
+  a {
+    color: #233B5D;
+  }
+
+  a:hover {
+    color: #ececec;
+  }
+
+
+  .register__btn {
+    margin-top: 15px;
+    margin-left: 80px;
+    margin-right: 80px;
+    padding: 10px;
+    font-size: 18px;
+    margin-bottom: 10px;
+    border: none;
+    color: #e1e1e5;
+    background: #233B5D;
+    border-radius: 31.224px;
+    font-family: 'Rubik', sans-serif;
+  }
+
+  .register div {
+    margin-top: 7px;
+  }
+
+  .login_font {
+    font-family: 'Rubik', sans-serif;
+  }
+
+  .signup_pic {
+    height: 50%;
+    width: 50%;
+    align-self: center;
+  }
