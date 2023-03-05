@@ -50,7 +50,7 @@ function Speech() {
                 body: JSON.stringify({ "prompt": 'Urgent Request for Help' })
             })
                 .then(response => response.json())
-            getMapInfo();
+            await getMapInfo();
 
 
         }
@@ -61,6 +61,7 @@ function Speech() {
         const jsonMapData = await response.json();
         console.log(jsonMapData.response)
         setSampleResponse(jsonMapData);
+        console.log("Updating the map!")
     }
 
     useEffect(() => {

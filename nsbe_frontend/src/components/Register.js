@@ -86,6 +86,10 @@ function Register() {
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Password"
           />
+          <input
+            className="register__textBox"
+            placeholder="Race"
+          />
           {/* <input
             type="profile picture"
             className="register__textBox"

@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { Map, Marker, InfoWindow, GoogleApiWrapper } from 'google-maps-react';
+import { AppContext } from './Context';
 
 const MapContainer = ({ markerInfos, google }) => {
   const [markers, setMarkers] = useState([
@@ -7,7 +8,8 @@ const MapContainer = ({ markerInfos, google }) => {
     // />
   ]);
   console.log(markerInfos);
-  
+  const { sampleResponse, setSampleResponse } = useContext(AppContext);
+
 
   useEffect(() => {
       // console.log(markers.length);
@@ -37,7 +39,7 @@ const MapContainer = ({ markerInfos, google }) => {
         />
       ))
     );
-  }, []);
+  }, [sampleResponse]);
 
 
 

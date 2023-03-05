@@ -29,6 +29,8 @@ const Modal = props => {
     const jsonMapData = await response.json();
     console.log(jsonMapData.response)
     setSampleResponse(jsonMapData);
+    console.log("Updating the map!")
+
   }
 
   useEffect(() => {
