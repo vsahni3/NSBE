@@ -51,7 +51,7 @@ function Register() {
 
   useEffect(() => {
     if (loading) return;
-    if (user) navigate("/prompt");
+    if (user) navigate("/dashboard");
   }, [user, loading]);
 
   return (
