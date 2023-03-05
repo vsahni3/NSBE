@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify, session
 from flask_cors import CORS, cross_origin
-import sql
-from analysis import reply, classify
+from app.sql import *
+from app.analysis import reply, classify
 from time import sleep
 
 app = Flask(__name__)
@@ -27,9 +27,9 @@ def login():
     EMAIL[0] = request.get_json()['email']
     email = EMAIL[0]
     try:
-        sql.load_messages(email[:email.index('@')])
+        load_messages(email[:email.index('@')])
     except:
-        sql.create_user_table(email[:email.index('@')])
+        create_user_table(email[:email.index('@')])
 
     return jsonify({
         'response': 'Done'
@@ -41,11 +41,11 @@ def report():
     prompt = request.get_json()['prompt']
     if EMAIL[0]:
         try:
-            sql.insert_map(prompt)
+            insert_map(prompt)
         except:
             
-            sql.create_map_table()
-            sql.insert_map(prompt)
+            create_map_table()
+            insert_map(prompt)
 
         return jsonify({'response': 'done'})
     else:
@@ -58,7 +58,7 @@ def report():
 def give_analysis():
     if EMAIL[0]:
         email = EMAIL[0]
-        user_data = sql.load_messages(email[:email.index('@')])
+        user_data = load_messages(email[:email.index('@')])
         return jsonify({'response': user_data})
     else:
         return jsonify({
@@ -86,7 +86,7 @@ def analyze():
         # response = response[100:-11]
     if EMAIL[0]:
         email = EMAIL[0]
-        sql.insert_user(email[:email.index('@')], transcript, response, class_response)
+        insert_user(email[:email.index('@')], transcript, response, class_response)
         return jsonify({
         'response': 'Done'
         })
@@ -100,10 +100,10 @@ def analyze():
 def map():
     if EMAIL[0]:
         try:
-            full_map = sql.load_map()
+            full_map = load_map()
         except:
-            sql.create_map_table()
-            full_map = sql.load_map()
+            create_map_table()
+            full_map = load_map()
         return jsonify({'response': full_map})
     else:
         return jsonify({
