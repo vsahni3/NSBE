@@ -7,12 +7,13 @@ const MapContainer = ({ markerInfos, google }) => {
     // />
   ]);
   console.log(markerInfos);
+  
 
   useEffect(() => {
       // console.log(markers.length);
       // console.log(markers[i]);
       // console.log(markerInfos);
-      console.log(markerInfos[0][1], markerInfos[0][2]);
+      // console.log(markerInfos[0][1], markerInfos[0][2]);
     }
     // console.log(markerInfos);
 , []);
@@ -83,7 +84,6 @@ const MapContainer = ({ markerInfos, google }) => {
   // console.log(location2);
   // const location
   // const name = markers[0][3];
-  const name = 'asdasda'
 
 
   return (
@@ -97,6 +97,9 @@ const MapContainer = ({ markerInfos, google }) => {
       style={{ width: '100%', height: '100%' }}
       zoom={zoom}
       initialCenter={location}
+      fullscreenControl={false}
+      zoomControl={false}
+      streetViewControl={false}
     >
       {/* <Marker */}
         {/* position={{ lat: 43.664486, lng: -79.399689 }} */}

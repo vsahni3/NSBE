@@ -45,11 +45,12 @@ const AppContextProvider = ({ children }) => {
 
     const [resp, setResp] = useState('');
 
-    const [reportPhrase, setReportPhrase] = useState('asdas');
+    const [reportPhrase, setReportPhrase] = useState('');
+    const [sampleResponse, setSampleResponse] = useState({});
 
 
     return (
-        <AppContext.Provider value={{ players, setPlayers, colors, setColors, user, loading, resp, setResp, photoTaken, setPhotoTaken, reportPhrase, setReportPhrase }}>
+        <AppContext.Provider value={{ players, setPlayers, colors, setColors, user, loading, resp, setResp, photoTaken, setPhotoTaken, reportPhrase, setReportPhrase, sampleResponse, setSampleResponse }}>
             {children}
         </AppContext.Provider>
     );

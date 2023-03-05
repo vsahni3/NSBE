@@ -11,11 +11,25 @@ const Modal = props => {
     }
   };
 
-  const { reportPhrase, setReportPhrase } = useContext(AppContext);
-  const reportCrime = () => {
-    
+  const { reportPhrase, setReportPhrase, sampleResponse, setSampleResponse } = useContext(AppContext);
+  const reportCrime = async () => {
+    await fetch('http://127.0.0.1:5000/report/', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ "prompt": reportPhrase })
+    })
+      .then(response => response.json())
   }
 
+  const getMapInfo = async () => {
+    const response = await fetch('http://127.0.0.1:5000/map/')
+    const jsonMapData = await response.json();
+    console.log(jsonMapData.response)
+    setSampleResponse(jsonMapData);
+  }
 
   useEffect(() => {
     document.body.addEventListener("keydown", closeOnEscapeKeyDown);
@@ -36,26 +50,31 @@ const Modal = props => {
             <h4 className="modal-title">{"Report a case"}</h4>
           </div>
           <div className="modal-body">{"Please Describe the case!"}
-          <div className="line">
-          <input 
-            value={reportPhrase}
-            onChange={(e) => {
-                setReportPhrase(e.target.value);
-                console.log(reportPhrase);
-        }}></input>
-        </div>
-        </div>
+            <div className="line">
+              <input
+                value={reportPhrase}
+                onChange={(e) => {
+                  setReportPhrase(e.target.value);
+                  console.log(reportPhrase);
+                }}></input>
+            </div>
+          </div>
 
           <div className="modal-footer">
-            <button 
-                onClick={reportCrime}
-            > 
-                Submit
+            <button
+              onClick={async () => {
+                await reportCrime();
+                await setReportPhrase('');
+                await getMapInfo();
+                props.onClose();
+              }}
+            >
+              Submit
             </button>
             <button onClick={props.onClose} className="button">
-                Close
+              Close
             </button>
-            
+
           </div>
         </div>
       </div>

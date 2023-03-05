@@ -8,7 +8,7 @@ export default function Navbar() {
         <nav className="nav">
             <Link to="/" >
                 <img className="navbar_logo" src={Logo}></img>
-                <p className="navbar_title">BrutalityWatch</p>
+                {/* <p className="navbar_title">BrutalityWatch</p> */}
             </Link>
 
             {/* <Link to="/" className="navbar_title">

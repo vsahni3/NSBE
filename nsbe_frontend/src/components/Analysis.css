@@ -1,4 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&family=Ubuntu:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap');
+
 nav.nav {
     position: absolute;
     top: 0; 
+}
+
+.transcript {
+    border-radius: 10px;
+    background-color: #F5F5F5;
+    margin: 20px;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 500;
+    padding: 20px;
+    font-size: large;
+}
+
+.analysis {
+    border-radius: 10px;
+    /* background-color: white; */
+    margin: 20px;
+    font-family: 'Tilt Neon', cursive;
+    font-weight: 500;
+    font-size: large;
+}
+
+.classification {
+    border-radius: 10px;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.date {
+    border-radius: 10px;
+    /* background-color: gray; */
+    margin-top: 15px;
+    font-size: small;
 }
