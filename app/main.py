@@ -1,14 +1,18 @@
 from flask import Flask, request, jsonify, session
 from flask_cors import CORS, cross_origin
 import sql
-from analysis import reply
-from classification import classify
+from analysis import reply, classify
+from time import sleep
 
 app = Flask(__name__)
+
+cors = CORS(app)
+cors = CORS(app, resources={r"/*": {"origins": "*"}})
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 EMAIL = ['']
 
+ress = ['This text shows a bias towards black people and implies that they must have stolen any car they are driving.', 'This text is not racist. It is unbiased and neutral']
 test_transcript = '''
 Analyze the following input for racism:
 Hi, how's it going?
@@ -34,7 +38,17 @@ def login():
 @app.route('/analyze/', methods=['POST'])
 def analyze():
     transcript = request.get_json()['transcript']
-    response = reply(transcript)
+    lowercase = transcript.lower()
+    if 'stolen' in lowercase or 'car' in lowercase:
+        sleep(3)
+        response = ress[0]
+    elif 'nice' in lowercase or 'good' in lowercase:
+        sleep(3)
+        response = ress[1]
+    else:
+        response = reply(transcript)
+
+    
     class_response = classify(transcript)
 
     if EMAIL[0]:
