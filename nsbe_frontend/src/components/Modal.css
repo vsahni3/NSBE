@@ -52,6 +52,7 @@
   
   .modal-title {
     margin: 0;
+    font-size: large;
   }
   
   .modal-body {
@@ -73,9 +74,20 @@
     border-radius: 70px;
   }
 
-  button {
+  .modal-button {
     border-radius: 10px;
     color: #E1E1E5;
     background-color: #233B5D;
     font-family: 'Tilt Neon', cursive;
+    margin-right: 15px;
+    height: 100%;
+    padding: 5px;
+    font-weight: 500;
+    /* font-size: medium; */
+  }
+
+  .modal-input {
+    width: 80%;
+    /* height: 80%; */
+    padding: 10px;
   }

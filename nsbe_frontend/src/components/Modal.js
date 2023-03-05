@@ -47,11 +47,13 @@ const Modal = props => {
       <div className="modal" onClick={props.onClose}>
         <div className="modal-content" onClick={e => e.stopPropagation()}>
           <div className="modal-header">
-            <h4 className="modal-title">{"Report a case"}</h4>
+            <h4 className="modal-title">{"Report Racism or Brutality"}</h4>
           </div>
           <div className="modal-body">{"Please Describe the case!"}
             <div className="line">
               <input
+                className="modal-input"
+                placeholder="What happened..."
                 value={reportPhrase}
                 onChange={(e) => {
                   setReportPhrase(e.target.value);
@@ -62,6 +64,7 @@ const Modal = props => {
 
           <div className="modal-footer">
             <button
+              className="modal-button"
               onClick={async () => {
                 await reportCrime();
                 await setReportPhrase('');
@@ -71,7 +74,7 @@ const Modal = props => {
             >
               Submit
             </button>
-            <button onClick={props.onClose} className="button">
+            <button className="modal-button" onClick={props.onClose} >
               Close
             </button>
 
