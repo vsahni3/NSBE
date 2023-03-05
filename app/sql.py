@@ -12,7 +12,7 @@ def give_date():
 
 def give_location() -> list:
     g = geocoder.ip('me')
-    return g.latlng
+    return [43.6629, -79.3987]
 
 
 def create_map_table():
@@ -95,7 +95,7 @@ def remove_all_map():
     mycursor.execute(f'DELETE FROM map')
     conn.commit()
 
-    
+
 # create_map_table()
 # conn = sqlite3.connect("mydatabase.db")
 # mycursor = conn.cursor()
