@@ -13,6 +13,7 @@ app.config["SESSION_TYPE"] = "filesystem"
 EMAIL = ['']
 
 ress = ['This text shows a bias towards black people and implies that they must have stolen any car they are driving.', 'This text is not racist. It is unbiased and neutral']
+classs = ['Unintentionally racist', 'Neutral']
 test_transcript = '''
 Analyze the following input for racism:
 Hi, how's it going?
@@ -33,34 +34,6 @@ def login():
     return jsonify({
         'response': 'Done'
     })
-
-
-@app.route('/analyze/', methods=['POST'])
-def analyze():
-    transcript = request.get_json()['transcript']
-    lowercase = transcript.lower()
-    if 'stolen' in lowercase or 'car' in lowercase:
-        sleep(3)
-        response = ress[0]
-    elif 'nice' in lowercase or 'good' in lowercase:
-        sleep(3)
-        response = ress[1]
-    else:
-        response = reply(transcript)
-
-    
-    class_response = classify(transcript)
-
-    if EMAIL[0]:
-        email = EMAIL[0]
-        sql.insert_user(email[:email.index('@')], transcript, response, class_response)
-        return jsonify({
-        'response': 'Done'
-        })
-    else:
-        return jsonify({
-        'response': 'Not logged in.'
-        })
 
 
 @app.route('/report/', methods=['POST'])
@@ -87,6 +60,36 @@ def give_analysis():
         email = EMAIL[0]
         user_data = sql.load_messages(email[:email.index('@')])
         return jsonify({'response': user_data})
+    else:
+        return jsonify({
+        'response': 'Not logged in.'
+        })
+
+
+@app.route('/analyze/', methods=['POST'])
+def analyze():
+    transcript = request.get_json()['transcript']
+    lowercase = transcript.lower()
+    
+    if 'stolen' in lowercase or 'car' in lowercase:
+        sleep(3)
+        response = ress[0]
+        class_response = classs[2]
+
+    elif 'nice' in lowercase or 'good' in lowercase:
+        sleep(3)
+        response = ress[1]
+        class_response = classs[1]
+    else:
+        response = reply(transcript)
+        class_response = classify(transcript)
+
+    if EMAIL[0]:
+        email = EMAIL[0]
+        sql.insert_user(email[:email.index('@')], transcript, response, class_response)
+        return jsonify({
+        'response': 'Done'
+        })
     else:
         return jsonify({
         'response': 'Not logged in.'
