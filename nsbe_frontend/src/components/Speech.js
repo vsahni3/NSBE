@@ -28,7 +28,26 @@ function Speech() {
     const navigate = useNavigate();
     const { speak } = useSpeechSynthesis();
     const [show, setShow] = useState(false);
+    {/* location: { lat: 43.664486, lng: -79.399689 }, */}
 
+    const [sampleResponse, setSampleResponse] = useState({
+        'response': [
+            [
+                1,
+                "44.6629",
+                "-80.3987",
+                "I was shoved by a police officer",
+                "04/03/2023 16:35",
+            ],
+            // [
+            //     2, 
+            //     "43.6629",
+            //     "-79.3987",
+            //     "I was physically assaulted by a police officer",
+            //     "04/020/2023 19:40",
+            // ]
+        ]
+    });
 
     useEffect(() => {
         if (photoTaken) {
@@ -36,7 +55,6 @@ function Speech() {
             sendMessage('We identified the technology', 'ai');
         }
     }, []);
-
 
     const sendMessage = async (messageValue, user_author) => {
         // if (currentMessage !== "") {
@@ -57,15 +75,12 @@ function Speech() {
     };
 
     
-
-
     // send the user's speech (converted to text) to the backend
     const postSpeech = async () => {
         try {
-
-            const body = { "text": value }; // convert to JSON since body needs to be in JSON format
+            const body = { "transcript": value }; // convert to JSON since body needs to be in JSON format
             // const responses = [];
-            const response = await fetch('http://127.0.0.1:5000/msg/', {
+            const response = await fetch('http://127.0.0.1:5000/analyze/', {
                 method: "POST",
                 // mode: 'no-cors',
                 headers: {
@@ -84,8 +99,8 @@ function Speech() {
             })
             // console.log(resp)
             // responses.push(resp);
-            sendMessage(resp, 'ai');
-            speak({ text: resp })
+            // sendMessage(resp, 'ai');
+            // speak({ text: resp })
             // console.log(responses[countStop]);
             // setCountStop(countStop + 1);
             // setUserOrAI('ai');
@@ -110,7 +125,8 @@ function Speech() {
             <div className="chat-window">
                 {/* footer */}
                 <div className="chat-body">
-                    <Maps markerInfos={{json: 'json'}}/>
+
+                    <Maps markerInfos={sampleResponse.response}/>
                 </div>
 
                 <div className="chat-footer">
