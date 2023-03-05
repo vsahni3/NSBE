@@ -113,8 +113,8 @@ def remove_all_map():
 
 # description = 'I was called racial slurs'
 # date = "04/01/2023 13:27"
-# lat = '43.75'
-# long = '-79.1'
+# lat = '44'
+# long = '-79.4'
 # mycursor.execute(f"INSERT INTO map (lat, long, description, date) VALUES (?, ?, ?, ?)", (lat, long, description, date))
 # conn.commit()
 
