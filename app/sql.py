@@ -95,6 +95,8 @@ def remove_all_map():
     mycursor.execute(f'DELETE FROM map')
     conn.commit()
 
+    
+# create_map_table()
 # conn = sqlite3.connect("mydatabase.db")
 # mycursor = conn.cursor()
 # description = 'I was shoved by a cop'

@@ -70,11 +70,11 @@ def give_analysis():
 def analyze():
     transcript = request.get_json()['transcript']
     lowercase = transcript.lower()
-    
+
     if 'stolen' in lowercase or 'car' in lowercase:
         sleep(3)
         response = ress[0]
-        class_response = classs[2]
+        class_response = classs[0]
 
     elif 'nice' in lowercase or 'good' in lowercase:
         sleep(3)
@@ -83,7 +83,7 @@ def analyze():
     else:
         response = reply(transcript)
         class_response = classify(transcript)
-
+        # response = response[100:-11]
     if EMAIL[0]:
         email = EMAIL[0]
         sql.insert_user(email[:email.index('@')], transcript, response, class_response)
